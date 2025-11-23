@@ -6,13 +6,11 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
 const composio = new Composio({ apiKey: process.env.COMPOSIO_API_KEY });
 
-// API Routes
 app.get('/api/events', async (req, res) => {
   try {
     const entity = await composio.getEntity(process.env.ENTITY_ID);
@@ -63,10 +61,8 @@ app.post('/api/events/create', async (req, res) => {
   }
 });
 
-// Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
 
-// Export for Vercel serverless
 module.exports = app;

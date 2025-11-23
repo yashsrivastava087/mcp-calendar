@@ -33,7 +33,6 @@ const Loadingscreen = ({ onComplete }) => {
         <div className="w-[40%] h-full bg-indigo-500 shadow-[0_0_10px_#6366f1] sm:shadow-[0_0_15px_#6366f1] animate-loading-bar"></div>
       </div>
 
-      {/* Required for the bar to actually move */}
       <style>{`
         @keyframes loading-bar {
           0% { transform: translateX(-150%); }
